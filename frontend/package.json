@@ -1,0 +1,47 @@
+{
+  "name": "code-test-front-end",
+  "version": "0.0.1",
+  "description": "Stabelo code test front end application",
+  "main": "index.tsx",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .cache .serve target",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "build": "parcel build --no-minify --log-level 4 --out-dir target --cache-dir .cache index.html",
+    "develop": "parcel serve --out-dir .serve --cache-dir .cache --port 8080 --hmr-port 43569 index.html"
+  },
+  "author": "Stabelo tech <tech@stabelo.se>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "@types/history": "^4.7.2",
+    "@types/node": "^11.9.0",
+    "@types/qs": "^6.5.1",
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "@types/react-sparklines": "^1.7.0",
+    "parcel-bundler": "^1.11.0",
+    "postcss-modules": "^1.4.1",
+    "react-hot-loader": "^4.6.5",
+    "sass": "^1.17.0",
+    "tslint": "^5.12.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "@mdi/font": "^3.3.93",
+    "@types/react-router-dom": "^4.3.1",
+    "history": "^4.7.2",
+    "ol": "^5.3.0",
+    "qs": "^6.6.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-router-dom": "^4.3.1",
+    "react-sparklines": "^1.7.0",
+    "tslib": "^1.9.3"
+  },
+  "browserslist": {
+    "test": "last 2 Firefox versions, last 2 Chrome versions, last 2 Edge versions, last 2 Safari versions",
+    "production": "last 2 Firefox versions, last 2 Chrome versions, last 2 Edge versions, last 2 Safari versions"
+  }
+}
