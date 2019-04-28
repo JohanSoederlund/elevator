@@ -29,9 +29,10 @@
   "dependencies": {
     "boom": "^7.2.1",
     "config": "^3.0.1",
+    "kcors": "^2.2.2",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "kcors": "^2.2.2"
+    "koa-websocket": "^5.0.1"
   }
 }

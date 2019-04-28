@@ -1,0 +1,112 @@
+
+#lineDrawing {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin:0 auto;
+    margin-top: -7.8%;
+    margin-left: 8%;
+    z-index: 98;
+  }
+  
+  .my-path {
+    fill:none;
+    stroke: #04a49c;
+    stroke-width:15 ;
+  }
+  
+  h1 {
+    color: #04a49c;
+    position: absolute;
+    margin:0 auto;
+    font-size: 400%;
+    margin-top: -8%;
+    margin-left: 12%;
+    z-index: 98;
+    font-family:  'Spectral', Extra-Light serif;
+    font-weight: 1;
+  }
+
+.logo {
+    width: 160.000000pt; height: 44.000000pt; 
+  }
+  
+  @media only screen and (max-width: 600px) {
+    h1 {
+      color: #04a49c;
+      position: absolute;
+      margin:0 auto;
+      font-size: 100%;
+      margin-top: -30%;
+      margin-left: 22%;
+      z-index: 98;
+      font-family:  'Spectral', Extra-Light serif;
+      font-weight: 1;
+    }
+    #lineDrawing {
+      margin-top: -25%;
+      margin-left: 8%;
+    }
+  
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    h1 {
+      font-size: 200%;
+      margin-top: -10%;
+      margin-left: 13%;
+    }
+    #lineDrawing {
+      margin-top: -14.5%;
+      margin-left: 8%;
+    }
+  
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  @media only screen and (max-width: 1000px) {
+    h1 {
+      font-size: 200%;
+      margin-top: -10%;
+      margin-left: 13%;
+    }
+    #lineDrawing {
+      margin-top: -14.5%;
+      margin-left: 8%;
+    }
+  
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  @media only screen and (max-width: 1200px) {
+    h1 {
+      font-size: 300%;
+      margin-top: -10%;
+      margin-left: 15%;
+    }
+    #lineDrawing {
+      margin-top: -16.5%;
+      margin-left: 8%;
+    }
+  
+    .logo {
+      width: 200%;
+      height: 200%;
+    }
+
+  }
+
+  
