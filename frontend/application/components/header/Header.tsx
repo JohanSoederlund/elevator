@@ -69,22 +69,22 @@ class Header extends React.Component<IProperties, IState> {
         return (
             <header>
                 <svg viewBox="0 0 215 40">
-                    <polygon class="polymorph" points="215,40 0,40 0,0 47.7,0 215,0"
+                    <polygon className="polymorph" points="215,40 0,40 0,0 47.7,0 215,0"
                 </svg></svg>
 
                 <div id="lineDrawing">
-                    <svg class="logo" width="150%" height="150%" viewBox="0 0 160.000000 44.000000"
+                    <svg className="logo" width="150%" height="150%" viewBox="0 0 160.000000 44.000000"
                         preserveAspectRatio="xMidYMid meet">
 
-                        <g class="lines" transform="translate(0.000000,44.000000) scale(0.100000,-0.100000)"
-                        fill="#000000" stroke="#000000" stroke-width="4">
+                        <g className="lines" transform="translate(0.000000,44.000000) scale(0.100000,-0.100000)"
+                        fill="#000000" stroke="#000000" strokeWidth="4">
 
-                        <path class="my-path" d="M52 346 c-28 -52 -52 -97 -52 -100 0 -3 9 -6 20 -6 13 0 32 21 61 71
+                        <path className="my-path" d="M52 346 c-28 -52 -52 -97 -52 -100 0 -3 9 -6 20 -6 13 0 32 21 61 71
                         46 79 40 81 95 -18 l29 -53 123 0 124 0 -25 43 c-13 23 -39 68 -57 100 l-32
                         57 -116 0 -117 0 -53 -94z m292 0 c20 -35 36 -67 36 -70 0 -3 -33 -6 -72 -6
                         l-73 0 -35 63 c-19 34 -36 65 -38 70 -2 4 30 7 71 7 l75 0 36 -64z"/>
 
-                        <path class="my-path" d="M0 194 c0 -3 24 -48 53 -100 l52 -94 117 0 116 0 32 57 c18 32 44 77
+                        <path className="my-path" d="M0 194 c0 -3 24 -48 53 -100 l52 -94 117 0 116 0 32 57 c18 32 44 77
                         57 101 l25 42 -24 0 c-20 0 -32 -14 -63 -69 -22 -38 -43 -67 -47 -65 -4 3 -24
                         34 -44 69 l-36 65 -119 0 c-65 0 -119 -3 -119 -6z m244 -88 c20 -35 36 -67 36
                         -70 0 -3 -33 -6 -72 -6 l-73 0 -38 70 -38 70 75 0 74 0 36 -64z"/>
@@ -92,7 +92,7 @@ class Header extends React.Component<IProperties, IState> {
                     </svg>
                 </div>
                 <h1>STABELO</h1>
-                <nav class="nav">
+                <nav className="nav">
                     <ul>
 
                     

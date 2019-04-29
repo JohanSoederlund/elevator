@@ -13,37 +13,26 @@ class Elevator extends React.Component {
       }
 
     componentDidMount() {
-        console.log("component did mount 2");
-        console.log(this.props.name);
-        
-        
         anime({
             targets: "."+this.props.name,
-            //targets: ".elevator1",
-            //targets: ".door",
             duration: 2000,
             translateY: this.shaftHeight,
             easing: 'easeInOutSine'
           });
-          
     }
 
+    //shaftHeight = "1400%";
     shaftHeight = 630;
     floorHeight = this.shaftHeight / 19;
 
     componentWillReceiveProps(nextProps){
-        console.log("\n\n");
-        console.log("componentWillReceiveProps");
-        console.log(nextProps.floor);
-        console.log(this.props.floor);
-        console.log(this.props.name);
         if(nextProps.floor!==this.props.floor){
         //if (true)
             anime({
                 targets: "."+this.props.name,
                 translateY: this.shaftHeight-Math.abs(this.floorHeight*(nextProps.floor-1))
-                //duration: Math.abs(2000*(nextProps.floor - this.props.floor)),
-                easing: 'easeInOutSine'
+                duration: Math.abs(2000*(nextProps.floor - this.props.floor)),
+                easing: 'linear'
               });
             this.setState({floor: nextProps.floor});
         }
@@ -53,7 +42,6 @@ class Elevator extends React.Component {
 
 
     public render() {
-        console.log(this.props.name);
         return (
 
             <div className={this.props.name}>

@@ -4,6 +4,7 @@
     border: 5px solid black;
     width: 330px;
     height: 80%;
+    
 }
 
 .elevators {
@@ -41,4 +42,10 @@ button {
 
 li {
     list-style-type: none;
+}
+
+.information {
+    position: relative;
+    float: left;
+    background-color: aqua;
 }

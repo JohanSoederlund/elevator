@@ -5,20 +5,18 @@ import Elevator from "../../components/Elevator";
 import Panel from "../../components/Panel";
 import door from "../../images/elevator-door.svg";
 
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
-
+//background-image: url("../../images/elevator.png");
 class ImplementationPage extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            elevators: [
-                {floor: 1, destinations: [], index: 0},
-                {floor: 1, destinations: [], index: 1},
-                {floor: 1, destinations: [], index: 2},
-                {floor: 1, destinations: [], index: 3},
-                {floor: 1, destinations: [], index: 4}
-            ],
+            information: "";
             elevator1: {floor: 1, destinations: [1], index: 0},
             elevator2: {floor: 1, destinations: [1], index: 1},
             elevator3: {floor: 1, destinations: [1], index: 2},
@@ -28,20 +26,19 @@ class ImplementationPage extends React.Component {
     }
 
     componentDidMount() {
-        console.log("component did mount ");
         
     }
-
+//
     handleData(data) {
         let result = JSON.parse(data);
-        console.log("handleData");
+        let information = "Elevator number " + result.index + " on floor " + result.floor + ", will soon arrive at floor " + result.destinations[0] + ".";
+        this.setState( { information: information} );
         console.log(result);
         switch(result.index) {
             case 0:
                 this.setState( { elevator1: result } );
                 break;
             case 1:
-            console.log("CASE 1!!!");
                 this.setState( { elevator2: result } );
                 break;
             case 2:
@@ -56,12 +53,9 @@ class ImplementationPage extends React.Component {
             default:
           }
         
-        console.log(this.state.elevator2.destinations[1]);
       }
 
       handleOpen(data) {
-        console.log("handleOpen");
-        console.log(data);
         //this.setState({count: this.state.count + result.movement});
       }
 
@@ -123,9 +117,23 @@ class ImplementationPage extends React.Component {
                     </div>
                         
                     </li>
+
+                    
                 </ul>
                 
-
+                <Card className="card">
+                    <CardHeader
+                        title="Information Panel"
+                        subheader="Elevators latest action"
+                    />
+                    
+                    <CardContent>
+                        <Typography paragraph>
+                            {this.state.information}
+                        </Typography>
+                        
+                    </CardContent>
+                </Card>
                 
                 
             </div>
@@ -137,4 +145,12 @@ export default ImplementationPage;
 
 
 
-//<Panel refWebSocket={this.refWebSocket} ></Panel>
+/*
+
+                
+                
+                
+                <textarea className="information" rows="4" cols="50" defaultValue="HEJ">
+                    {this.state.information}
+                </textarea>
+                */
