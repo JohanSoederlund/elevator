@@ -5,53 +5,46 @@ import anime from 'animejs';
 
 class Elevator extends React.Component {
 
-    constructor(){
-        super();
-        this.state={
-          floor : 1
-        }
-      }
+  const elevatorTimePerFloor = 2000;
+  const shaftHeight = 630;
+  const floorHeight = this.shaftHeight / 19;
 
-    componentDidMount() {
-        anime({
-            targets: "."+this.props.name,
-            duration: 2000,
-            translateY: this.shaftHeight,
-            easing: 'easeInOutSine'
-          });
+  constructor(){
+    super();
+    this.state={
+      floor : 1
     }
+  }
 
-    //shaftHeight = "1400%";
-    shaftHeight = 630;
-    floorHeight = this.shaftHeight / 19;
+  componentDidMount() {
+    anime({
+      targets: "."+this.props.name,
+      duration: this.elevatorTimePerFloor,
+      translateY: this.shaftHeight,
+      easing: 'easeInOutSine'
+    });
+  }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.floor!==this.props.floor){
-        //if (true)
-            anime({
-                targets: "."+this.props.name,
-                translateY: this.shaftHeight-Math.abs(this.floorHeight*(nextProps.floor-1))
-                duration: Math.abs(2000*(nextProps.floor - this.props.floor)),
-                easing: 'linear'
-              });
-            this.setState({floor: nextProps.floor});
-        }
-      }
-      
-
-
-
-    public render() {
-        return (
-
-            <div className={this.props.name}>
-               <img src={door}></img>
-                
-            </div>
-        );
+  componentWillReceiveProps(nextProps){
+    if(nextProps.floor!==this.props.floor){
+      //Targets this one single elevator and animates it's movement.
+      anime({
+        targets: "."+this.props.name,
+        translateY: this.shaftHeight-Math.abs(this.floorHeight*(nextProps.floor-1))
+        duration: Math.abs(this.elevatorTimePerFloor*(nextProps.floor - this.props.floor)),
+        easing: 'linear'
+      });
+      this.setState({floor: nextProps.floor});
     }
+  }
+
+  public render() {
+    return (
+      <div className={this.props.name}>
+        <img src={door}></img>
+      </div>
+    );
+  }
 }
 
 export default Elevator;
-
-//{this.props.name}

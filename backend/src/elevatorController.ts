@@ -48,7 +48,7 @@ export class ElevatorController {
         
         if (elevator.destinations.length === 1) {
             //Update direction and update floor level every 2 seconds.
-            (elevator.destinations[0] < elevator.floor) ? elevator.direction = "down" : elevator.direction = "up"
+            (elevator.destinations[0] < elevator.floor) ? elevator.direction = "down" : elevator.direction = "up";
             this.updateElevatorFloor(elevator);
             
         } else if(elevator.direction === "up") {
@@ -83,22 +83,16 @@ export class ElevatorController {
      * @param elevator {Object} description of an elevator
      */
     private async updateElevatorFloor(elevator) {
-        //Math.abs(elevator.destinations[0] - elevator.floor)*500
         let totalFloors = Math.abs(elevator.destinations[0] - elevator.floor)
 
         await this.timeout(this.elevatorTimePerFloor);
 
-        if (elevator.direction === "up") elevator.floor += 1;
-        else elevator.floor -= 1;
-        
-        
-        console.log("UPDATE ELEV");
-        console.log(this.elevators[elevator.elevatorNumber]);
-        //remove direction
+        (elevator.direction === "up") ? elevator.floor += 1 : elevator.floor -= 1;
+
         if (elevator.floor === elevator.destinations[0]) {
             elevator.destinations.shift();
             await this.timeout(this.elevatorStopPerFloor);
-            console.log(this.elevators[elevator.elevatorNumber]);
+
             if (elevator.destinations.length > 0) {
                 let response = JSON.stringify(elevator);
                 this.socket.send(response);

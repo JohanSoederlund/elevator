@@ -46,7 +46,6 @@ class Header extends React.Component<IProperties, IState> {
           fill: '#04a49c',
           easing: 'linear'
         });
-      
     
         anime({
           targets: '.polymorph',
@@ -94,11 +93,7 @@ class Header extends React.Component<IProperties, IState> {
                 <h1>STABELO</h1>
                 <nav className="nav">
                     <ul>
-
-                    
-
                         <a href="https://stabelo.se" ><img src="https://s3.eu-central-1.amazonaws.com/static.stabelo.net.eu-central-1/Stabelo_logo_RGB.png"  alt="Stabelo" /></a>
-
                         <li>
                             <Link className={activeLink === "about" ? "active" : ""} onClick={() => this.toggleActive("about")} to="/about">Om uppgiften</Link>
                         </li>
