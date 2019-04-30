@@ -3,7 +3,7 @@
     border-radius: 4px;
     border: 5px solid black;
     width: 330px;
-    height: 80%;
+    height: 70%;
     
 }
 
@@ -19,7 +19,7 @@
 .shaft {
     float: left;
     border: 3px solid black;
-    height: 80%;
+    height: 91%;
     display: inline-block;
     margin-left: 1%;
 }
@@ -49,3 +49,14 @@ li {
     float: left;
     background-color: aqua;
 }
+
+@media only screen and (max-width: 1400px) {
+    
+    .building {
+        top: -100%;
+    }
+
+    main {
+        top: 70%;
+    }
+  }

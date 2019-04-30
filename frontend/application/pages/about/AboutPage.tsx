@@ -4,7 +4,7 @@ class AboutPage extends React.Component {
     public render() {
         return (
             <>
-                <header><h1>Om uppgiften</h1></header>
+                <header className="aboutHeader"><h1>Om uppgiften</h1></header>
                 <section>
                     <p>Du skall bygga styrning och visualisering av ett hissystem. Systemet skall visualisera och styra vilken hiss som skall svara på ett
                         anrop så effektivt som möjligt. Systemet skall bestå av en frontend för visualisering av hissarnas läge samt ett backend för att anropa

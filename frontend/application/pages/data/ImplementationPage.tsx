@@ -17,24 +17,24 @@ class ImplementationPage extends React.Component {
         super();
         this.state = {
             information: "";
-            elevator1: {floor: 1, destinations: [1], index: 0},
-            elevator2: {floor: 1, destinations: [1], index: 1},
-            elevator3: {floor: 1, destinations: [1], index: 2},
-            elevator4: {floor: 1, destinations: [1], index: 3},
-            elevator5: {floor: 1, destinations: [1], index: 4},
+            elevator1: {floor: 1, destinations: [1], elevatorNumber: 0},
+            elevator2: {floor: 1, destinations: [1], elevatorNumber: 1},
+            elevator3: {floor: 1, destinations: [1], elevatorNumber: 2},
+            elevator4: {floor: 1, destinations: [1], elevatorNumber: 3},
+            elevator5: {floor: 1, destinations: [1], elevatorNumber: 4},
         }
     }
 
     componentDidMount() {
         
     }
-//
+
     handleData(data) {
         let result = JSON.parse(data);
-        let information = "Elevator number " + result.index + " on floor " + result.floor + ", will soon arrive at floor " + result.destinations[0] + ".";
+        let information = "Elevator number " + result.elevatorNumber + " on floor " + result.floor + ", will soon arrive at floor " + result.destinations[0] + ".";
         this.setState( { information: information} );
         console.log(result);
-        switch(result.index) {
+        switch(result.elevatorNumber) {
             case 0:
                 this.setState( { elevator1: result } );
                 break;
@@ -61,14 +61,24 @@ class ImplementationPage extends React.Component {
 
       sendMessage(message){
         this.refWebSocket.sendMessage(message);
+        if (message === 0) {
+            this.setState( {
+                information: "";
+                elevator1: {floor: 1, destinations: [1], elevatorNumber: 0},
+                elevator2: {floor: 1, destinations: [1], elevatorNumber: 1},
+                elevator3: {floor: 1, destinations: [1], elevatorNumber: 2},
+                elevator4: {floor: 1, destinations: [1], elevatorNumber: 3},
+                elevator5: {floor: 1, destinations: [1], elevatorNumber: 4},
+            } );
+        }
       }
 
     public render() {
 
         return (
-
+            
             <div className="building">
-
+                <button onClick={() => this.sendMessage(0)} >Reset elevators</button>
                 <Websocket url='ws://localhost:3000/'
                     onMessage={this.handleData.bind(this)}
                     onOpen={this.handleOpen.bind(this)} onClose={this.handleClose} reconnect={true} debug={true}

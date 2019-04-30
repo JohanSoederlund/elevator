@@ -3,9 +3,15 @@ html {
     background-color: #e9f2ea;
 }
 
+body {
+  margin: 0;
+}
+
 header {
   
-    nav {   
+    nav {  
+      top: 0%;
+    position: absolute; 
         ul {
             list-style-type: none;
             margin: 0;
@@ -43,9 +49,29 @@ header {
 
 main {
     position: absolute;
-    top: 90%;
+    top: 85%;
     left: 60%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 80%;
     height: 100%;
+}
+
+.aboutHeader {
+  margin-top: 5%;
+}
+
+.app {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1400px) {
+  main {
+      top: 75%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+      top: 65%;
+  }
 }
