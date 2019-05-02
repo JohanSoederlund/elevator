@@ -3,19 +3,16 @@ import Websocket from "react-websocket";
 import "./ImplementationPage.css";
 import Elevator from "../../components/Elevator";
 import Panel from "../../components/Panel";
+import Information from "../../components/Information";
 import door from "../../images/elevator-door.svg";
-
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 
 class ImplementationPage extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            information: "";
+            websocket: {},
+            information: "",    
             elevator0: {floor: 1, destinations: [1], elevatorNumber: 0},
             elevator1: {floor: 1, destinations: [1], elevatorNumber: 1},
             elevator2: {floor: 1, destinations: [1], elevatorNumber: 2},
@@ -50,20 +47,19 @@ class ImplementationPage extends React.Component {
       }
 
       handleOpen(data) {
+        this.setState({websocket: this.refWebSocket});
       }
 
       sendMessage(message){
         this.refWebSocket.sendMessage(message);
-        if (message === 0) {
-            this.setState( {
-                information: "";
-                elevator0: {floor: 1, destinations: [1], elevatorNumber: 0},
-                elevator1: {floor: 1, destinations: [1], elevatorNumber: 1},
-                elevator2: {floor: 1, destinations: [1], elevatorNumber: 2},
-                elevator3: {floor: 1, destinations: [1], elevatorNumber: 3},
-                elevator4: {floor: 1, destinations: [1], elevatorNumber: 4},
-            } );
-        }
+        this.setState( {
+            information: "";
+            elevator0: {floor: 1, destinations: [1], elevatorNumber: 0},
+            elevator1: {floor: 1, destinations: [1], elevatorNumber: 1},
+            elevator2: {floor: 1, destinations: [1], elevatorNumber: 2},
+            elevator3: {floor: 1, destinations: [1], elevatorNumber: 3},
+            elevator4: {floor: 1, destinations: [1], elevatorNumber: 4},
+        } );
       }
 
     public render() {
@@ -97,48 +93,11 @@ class ImplementationPage extends React.Component {
                         <Elevator name={"elevator4"} floor={this.state.elevator4.destinations[0]}/>
                     </li>
                     <li>
-                        <div className="panel">
-                            <button onClick={() => this.sendMessage(20)} >20</button>
-                            <button onClick={() => this.sendMessage(19)} >19</button>
-                            <button onClick={() => this.sendMessage(18)} >18</button>
-                            <button onClick={() => this.sendMessage(17)} >17</button>
-                            <button onClick={() => this.sendMessage(16)} >16</button>
-                            <button onClick={() => this.sendMessage(15)} >15</button>
-                            <button onClick={() => this.sendMessage(14)} >14</button>
-                            <button onClick={() => this.sendMessage(13)} >13</button>
-                            <button onClick={() => this.sendMessage(12)} >12</button>
-                            <button onClick={() => this.sendMessage(11)} >11</button>
-                            <button onClick={() => this.sendMessage(10)} >10</button>
-                            <button onClick={() => this.sendMessage(9)} >9</button>
-                            <button onClick={() => this.sendMessage(8)} >8</button>
-                            <button onClick={() => this.sendMessage(7)} >7</button>
-                            <button onClick={() => this.sendMessage(6)} >6</button>
-                            <button onClick={() => this.sendMessage(5)} >5</button>
-                            <button onClick={() => this.sendMessage(4)} >4</button>
-                            <button onClick={() => this.sendMessage(3)} >3</button>
-                            <button onClick={() => this.sendMessage(2)} >2</button>
-                            <button onClick={() => this.sendMessage(1)} >1</button>
-                        </div>
+                        <Panel websocket={this.state.websocket}/>
                     </li>
-
-                    
                 </ul>
                 
-                <Card className="card">
-                    <CardHeader
-                        title="Information Panel"
-                        subheader="Elevators latest action"
-                    />
-                    
-                    <CardContent>
-                        <Typography paragraph>
-                            {this.state.information}
-                        </Typography>
-                        
-                    </CardContent>
-                </Card>
-                
-                
+                <Information information={this.state.information}></Information>                
             </div>
         );
     }
