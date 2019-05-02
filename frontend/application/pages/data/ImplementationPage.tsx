@@ -69,7 +69,7 @@ class ImplementationPage extends React.Component {
             <div className="building">
                 <button className="reset" onClick={() => this.sendMessage(0)} >Reset elevators</button>
 
-                <Websocket url='ws://localhost:3000/'
+                <Websocket url='ws://localhost:3000/elevatorsocket'
                     onMessage={this.handleData.bind(this)}
                     onOpen={this.handleOpen.bind(this)} onClose={this.handleClose} reconnect={true} debug={true}
                     ref={Websocket => {

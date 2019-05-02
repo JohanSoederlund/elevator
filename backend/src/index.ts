@@ -5,6 +5,7 @@ import * as cors from "kcors";
 import * as Router from "koa-router";
 
 import * as  websockify from 'koa-websocket';
+import * as route from "koa-route";
 import { json } from "body-parser";
 
 import {ElevatorController} from './elevatorController';
@@ -12,7 +13,7 @@ import {ElevatorController} from './elevatorController';
 const app = websockify(new Koa());
 const router = new Router();
 
-app.ws.use( async (ctx, next) => {
+app.ws.use(route.all('/elevatorsocket', async function (ctx) {
     let elevatorController: ElevatorController = new ElevatorController(ctx.websocket);
     ctx.websocket.on('message', async (destination) => {
         try {
@@ -28,7 +29,7 @@ app.ws.use( async (ctx, next) => {
             console.error(error);
         }
       }).bind(this);
-});
+}));
 
 router.get("/sample", async (context) => {
     Object.assign(context.response, {
