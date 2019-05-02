@@ -10,23 +10,18 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-//background-image: url("../../images/elevator.png");
 class ImplementationPage extends React.Component {
 
     constructor() {
         super();
         this.state = {
             information: "";
-            elevator1: {floor: 1, destinations: [1], elevatorNumber: 0},
-            elevator2: {floor: 1, destinations: [1], elevatorNumber: 1},
-            elevator3: {floor: 1, destinations: [1], elevatorNumber: 2},
-            elevator4: {floor: 1, destinations: [1], elevatorNumber: 3},
-            elevator5: {floor: 1, destinations: [1], elevatorNumber: 4},
+            elevator0: {floor: 1, destinations: [1], elevatorNumber: 0},
+            elevator1: {floor: 1, destinations: [1], elevatorNumber: 1},
+            elevator2: {floor: 1, destinations: [1], elevatorNumber: 2},
+            elevator3: {floor: 1, destinations: [1], elevatorNumber: 3},
+            elevator4: {floor: 1, destinations: [1], elevatorNumber: 4},
         }
-    }
-
-    componentDidMount() {
-        
     }
 
     handleData(data) {
@@ -36,19 +31,19 @@ class ImplementationPage extends React.Component {
 
         switch(result.elevatorNumber) {
             case 0:
-                this.setState( { elevator1: result } );
+                this.setState( { elevator0: result } );
                 break;
             case 1:
-                this.setState( { elevator2: result } );
+                this.setState( { elevator1: result } );
                 break;
             case 2:
-                this.setState( { elevator3: result } );
+                this.setState( { elevator2: result } );
                 break;
             case 3:
-                this.setState( { elevator4: result } );
+                this.setState( { elevator3: result } );
                 break;
             case 4:
-                this.setState( { elevator5: result } );
+                this.setState( { elevator4: result } );
                 break;
             default:
           }
@@ -62,11 +57,11 @@ class ImplementationPage extends React.Component {
         if (message === 0) {
             this.setState( {
                 information: "";
-                elevator1: {floor: 1, destinations: [1], elevatorNumber: 0},
-                elevator2: {floor: 1, destinations: [1], elevatorNumber: 1},
-                elevator3: {floor: 1, destinations: [1], elevatorNumber: 2},
-                elevator4: {floor: 1, destinations: [1], elevatorNumber: 3},
-                elevator5: {floor: 1, destinations: [1], elevatorNumber: 4},
+                elevator0: {floor: 1, destinations: [1], elevatorNumber: 0},
+                elevator1: {floor: 1, destinations: [1], elevatorNumber: 1},
+                elevator2: {floor: 1, destinations: [1], elevatorNumber: 2},
+                elevator3: {floor: 1, destinations: [1], elevatorNumber: 3},
+                elevator4: {floor: 1, destinations: [1], elevatorNumber: 4},
             } );
         }
       }
@@ -87,6 +82,9 @@ class ImplementationPage extends React.Component {
 
                 <ul className="elevators">
                     <li className="shaft">
+                        <Elevator name={"elevator0"} floor={this.state.elevator0.destinations[0]}/>
+                    </li>
+                    <li className="shaft">
                         <Elevator name={"elevator1"} floor={this.state.elevator1.destinations[0]}/>
                     </li>
                     <li className="shaft">
@@ -97,9 +95,6 @@ class ImplementationPage extends React.Component {
                     </li>
                     <li className="shaft">
                         <Elevator name={"elevator4"} floor={this.state.elevator4.destinations[0]}/>
-                    </li>
-                    <li className="shaft">
-                        <Elevator name={"elevator5"} floor={this.state.elevator5.destinations[0]}/>
                     </li>
                     <li>
                         <div className="panel">
@@ -151,14 +146,3 @@ class ImplementationPage extends React.Component {
 
 export default ImplementationPage;
 
-
-
-/*
-
-                
-                
-                
-                <textarea className="information" rows="4" cols="50" defaultValue="HEJ">
-                    {this.state.information}
-                </textarea>
-                */

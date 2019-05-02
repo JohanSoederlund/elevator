@@ -11,9 +11,8 @@
     height: 100%;
 }
 
-.elevator1, .elevator2, .elevator3, .elevator4, .elevator5 {
+.elevator0, .elevator1, .elevator2, .elevator3, .elevator4 {
     width: 40px;
-    
 }
 
 .shaft {

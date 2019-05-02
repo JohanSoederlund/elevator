@@ -1,0 +1,14 @@
+{
+    apps : [
+      {
+        name      : "elevator-server",
+        script    : "/home/ubuntu/elevator/backend/target/index.js"
+      },
+      {
+        name      : "elevator-client",
+        script    : "npx",
+        interpreter: "none",
+        args: "serve -s /home/ubuntu/elevator/frontend/target -l 3090"
+      }
+    ]
+  }
